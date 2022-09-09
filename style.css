@@ -1,0 +1,28 @@
+body {
+    box-sizing: border-box;
+    background: linear-gradient(0deg, rgba(246,217,241,1) 0%, rgba(249,246,214,1) 56%) no-repeat fixed center;
+    font-family: Helvetica, Arial, sans-serif;
+    letter-spacing: 4px;
+  }
+
+h1 {
+    text-align: center;
+    margin: 50px;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: rgba(236, 210, 189, 0.475);
+    border-radius: 30px;
+    height: 500px;
+    width: 500px;
+}
+
+  .grid {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(16, 25px [col-start]);
+  }
