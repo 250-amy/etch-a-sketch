@@ -1,26 +1,29 @@
-let gridContainer = document.querySelector('.grid');
+const container = document.getElementById('container');
+const resize = document.getElementById('button');
+const clear = document.getElementById('reset');
 
-let rowtot = 8;
-let celltot = rowtot * rowtot;
+// Create the grid
+function makeGrid(rows) {
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', rows);
+    for (i = 0; i < (rows * rows); i++) {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "squares";
+    }
+    sketch();
+};
 
-gridContainer.style.display = 'grid';
-gridContainer.style.gridTemplateRows = `repeat(${rowtot}, 1fr)`;
-gridContainer.style.gridTemplateColumns = `repeat(${rowtot}, 1fr)`;
+// Call the makeGrid function
+makeGrid(30);
 
-let row = 1;
-let column = 1;
-for (let i = 1; i <= celltot; i++) {
-  let cell = document.createElement('div');
-  cell.style.border = '1px solid black';
-  cell.style.aspectRatio = '1/1';
-  cell.style.minHeight = '5px'
-  cell.style.minWidth = '5px'
-  //cell.style.gridRow = row;
-  //cell.style.gridColumn = column;
-  column += 1;
-  if (column === rowtot + 1) {
-    row += 1;
-    column = 1;
-  }
-  gridContainer.appendChild(cell);
+// Add sketch/hover effect by changing the background of the boxes
+function sketch() {
+    const boxes = document.querySelectorAll('.squares');
+    boxes.forEach(box => box.addEventListener('mouseover', () => {
+        box.style.background = 'black';
+//Reset the background of the boxes to clear the grid
+        clear.addEventListener('click', function() {
+        box.style.background = 'white';})
+    }))
 }
+
