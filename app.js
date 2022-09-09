@@ -1,6 +1,6 @@
 let gridContainer = document.querySelector('.grid');
 
-let rowtot = 8;
+let rowtot = 16;
 let celltot = rowtot * rowtot;
 
 gridContainer.style.display = 'grid';
